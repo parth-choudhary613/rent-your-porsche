@@ -1,0 +1,55 @@
+.preloader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-size: contain; /* Makes sure the image scales appropriately */
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+}
+
+/* Cube styling */
+.cube {
+  position: relative;
+  width: 20vw; /* Make cube responsive */
+  height: 20vw;
+  max-width: 200px; /* Add a max width for larger screens */
+  max-height: 200px;
+  transform-style: preserve-3d;
+  animation: rotate 3s infinite linear;
+}
+
+/* Cube faces */
+.face {
+  position: absolute;
+  width: 100%; /* Adjust to cover cube's faces fully */
+  height: 100%;
+  background-color: rgba(52, 152, 219, 0.9); /* Light blue color */
+  border: 2px solid #fff;
+}
+
+/* Positioning cube faces */
+.front { transform: translateZ(10vw); }
+.back { transform: rotateY(180deg) translateZ(10vw); }
+.left { transform: rotateY(-90deg) translateZ(10vw); }
+.right { transform: rotateY(90deg) translateZ(10vw); }
+.top { transform: rotateX(90deg) translateZ(10vw); }
+.bottom { transform: rotateX(-90deg) translateZ(10vw); }
+
+/* Rotation animation */
+@keyframes rotate {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* Responsive text */
+.preloader h1 {
+  color: #fff;
+  font-size: 5vw; /* Make text responsive */
+  text-align: center;
+}
